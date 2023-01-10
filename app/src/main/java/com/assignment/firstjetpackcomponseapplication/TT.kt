@@ -2,7 +2,7 @@ package com.assignment.firstjetpackcomponseapplication
 
 object SampleData {
     // Sample conversation data
-    val conversationSample = listOf(
+  /*  val conversationSample = listOf(
         Message(
             "Colleague",
             "Test...Test...Test..."
@@ -68,5 +68,5 @@ object SampleData {
             "Colleague",
             "Have you tried writing build.gradle with KTS?"
         ),
-    )
+    )*/
 }

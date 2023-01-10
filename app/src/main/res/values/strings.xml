@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FirstJetpackComponseApplication</string>
+    <string name="demo_text">Hello World Application</string>
 </resources>
