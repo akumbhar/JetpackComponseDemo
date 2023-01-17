@@ -21,11 +21,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -35,13 +39,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
-            ComposeText()
+            ComposeBoxText()
 
         }
     }
 }
 
-
+/*
 @Preview
 @Composable
 fun ComposeText() {
@@ -69,7 +73,7 @@ fun ComposeText() {
 
 
     }
-}
+}*/
 
 /*
 
@@ -88,7 +92,62 @@ fun ComposeText() {
        .padding(5.dp)
    ) {
 
+
        Text(text = "Hello", modifier = Modifier.draggable)
    }
 }
 */
+
+@Preview
+@Composable
+fun ComposeBoxText() {
+
+    Box {
+        Text(
+            text = "Hello World!!",
+            color = Color.Red,
+            fontSize = 20.sp,
+            textDecoration = TextDecoration.LineThrough,
+            fontFamily = FontFamily(Font(R.font.aclonica)),
+            textAlign = TextAlign.Center,
+            fontStyle = FontStyle.Italic
+        )
+    }
+
+}
+
+@Preview
+@Composable
+fun ComposeSpannableText() {
+
+    Box {
+        Text(
+            text = buildAnnotatedString {
+                withStyle(
+                    style = SpanStyle(
+                        color = Color.Green,
+                        fontFamily = FontFamily(Font(R.font.aclonica)),
+                        fontSize = 20.sp,
+                        textDecoration = TextDecoration.LineThrough
+                    )
+                ) {
+                    append("Hello")
+                }
+                withStyle(
+                    style = SpanStyle(
+                        color = Color.Magenta,
+                        fontFamily = FontFamily(Font(R.font.montserrat_italic)),
+                        fontSize = 30.sp,
+                        textDecoration = TextDecoration.Underline,
+                    )
+                ) {
+                    append(" World!!")
+                }
+            },
+            color = Color.Red,
+            textAlign = TextAlign.Center,
+            fontStyle = FontStyle.Italic
+        )
+    }
+
+}
